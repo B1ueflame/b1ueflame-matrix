@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Blueflame</title>
+    <link rel="icon" type="image/x-icon" href="Assets/Blue.ico">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+            text-align: center;
+            color: darkgray;
+            font-size: medium;
+            font-family:'Courier New', Courier, monospace;
+        }
+        text {
+            background-color: black;
+            padding: 8px 8px;
+            color: white;
+            text-align: center;
+            text-decoration: blink;
+        }
+        a:link, a:visited {
+            background-color: #009bce00;
+            color: black;
+            font-size: medium;
+            padding: 15px 15px;
+            text-align: center;
+            margin: 32px 128px;
+            display: inline-block;
+        }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        p{
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+            color: darkgray;
+            font-size: medium;  
+            font-family:sans-serif
+        }
+    
+    </style>
+</head>
+<body>
+    <form style="position:relative; z-index: -1;">
+        <canvas id="matrix"></canvas>
+    </form>
+
+<body>
+
+    <header>
+        <div></div>
+        <div>
+            <a href="Blueflame.html">
+                <img id="header-logo" src="Assets/blueflame.gif" />
+            </a>
+    <p>
+        Bio
+
+    </p>
+            <div id="matrix-holder">
+        <canvas id="matrix"></canvas>
+    </div>
+    <script type="text/javascript" src="JS/matrix.js"></script>
+    <script type="text/javascript" src="JS/audio.js"></script>
+ 
+    <!-- <script src="/js/music.js"></script> -->
+</body>
+
+</html>
