@@ -1,18 +1,46 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Blueflame</title>
+    <title>Blue</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="Assets/Blue.ico">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+        @font-face {
+            font-family: "DisposableDroid BB";
+            src: url("fonts\\DisposableDroidBB_bld.ttf") format('truetype'),
+                url("fonts\\DisposableDroidBB_bld.ttf") format('truetype'),
+                url("fonts\\DisposableDroidBB_bld.ttf") format('truetype');
+        }
+        @font-face {
+            font-family: "TeenyTinyPixls";
+            src: url("fonts\\TeenyTinyPixls-o2zo.ttf") format("truetype");
+        }
         body {
+            font-family: "Inconsolata", sans-serif;
+            color: white;
+            font-size: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
+            padding: 0;
             overflow: hidden;
-            background-color: black;
-            text-align: center;
-            color: darkgray;
-            font-size: medium;
-            font-family:'Courier New', Courier, monospace;
+            flex-direction: column;
+        }
+        #navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            border-bottom: 2px solid #6a0dad;
         }
         text {
             background-color: black;
@@ -21,15 +49,7 @@
             text-align: center;
             text-decoration: blink;
         }
-        a:link, a:visited {
-            background-color: #009ace;
-            color: black;
-            font-size: medium;
-            padding: 15px 15px;
-            text-align: center;
-            margin: 32px 128px;
-            display: inline-block;
-        }
+
         canvas {
             position: fixed;
             top: 0;
@@ -46,7 +66,167 @@
             font-size: medium;  
             font-family:sans-serif
         }
-        
+        #navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            border-bottom: 2px solid #6a0dad;
+        }
+
+        #homeLink {
+            position: absolute;
+            top: 0px;
+            left: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        #homeImage {
+            height: 80px; /* Adjust the height as needed */
+            margin-right: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        #homeImage:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-link {
+            color: #cccccc; /* gray */
+            font-size: 22px;
+            padding: 15px 35px;
+            font-family: "DisposableDroid BB", sans-serif;
+            text-decoration: none !important;
+            /*transition: color 0.3s ease;*/
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #cccccc;
+        }
+
+        #content h1, #content h2 {
+            font-family: "DisposableDroid BB", sans-serif;
+        }
+
+        #content h1 {
+            font-size: 35px;
+        }
+
+        #content h2 {
+            font-size: 25px;
+        }
+        #topCenterContainer {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 5;
+        }
+
+        #topCenterContainer img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        #topCenterContainer h3 {
+            color: white;
+            font-size: 18px;
+            margin: 0;
+            padding: 0;
+        }
+        #tint {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -50;
+        }
+
+        #content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 50px;
+            border: 1px solid white;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px white;
+            z-index: 1;
+        }
+
+        .member-link {
+            color: #cccccc; /* gray */
+            font-size: 8px;
+            font-family: "TeenyTinyPixls", sans-serif;
+            text-decoration: none !important;
+            transition: color 0.3s ease;
+        }
+
+        .member-link:hover {
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .member-link:active {
+            color: white;
+            text-shadow: 3px 0px 0px blue, -3px 0px 0px red;
+        }
+
+        .social-icon {
+            color: #cccccc; /* gray */
+            font-size: 24px;
+            margin: 10px;
+            text-decoration: none !important;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:active {
+            color: white;
+            text-shadow: 3px 0px 0px blue, -3px 0px 0px red;
+        }
+
+        h1, h2, p {
+            margin: 10px 0;
+        }
+
+        #title {
+            font-weight:1000;
+            -webkit-text-fill-color:transparent;
+            -webkit-background-clip:text;
+            background-image:url(https://i.imgur.com/k6rhOtN.gif),linear-gradient(115deg,#c0c0c0 25%,#fff 50%,#c0c0c0 25%),url(https://i.imgur.com/PCHuVFv.gif);
+            background-size:5em,50%1000%,5em;
+            animation: earlybundleanim 5s linear infinite;
+            transition:.3s;
+            position:relative;
+            text-shadow:0px 0px 10px white;
+            background-clip: text; /* Add this line for standard property */
+        }
+
+
+        @keyframes earlybundleanim{
+            100%{color:white;background-position:0%,500% ,0%;text-shadow:0px 0px 10px white;}
+            50%{color:#b1b1b1;background-position:0% ,250% ,0%;text-shadow:0px 0px 5px black;}
+            0%{color:white;background-position:0%,0% ,0%;text-shadow:0px 0px 10px white;}
+        }
 
 
     </style>
@@ -55,28 +235,180 @@
     <form style="position:relative; z-index: -1;">
         <canvas id="matrix"></canvas>
     </form>
-    
-    <div id="fade-in-container">
-        <img src="Assets/blueflame.gif" alt="blueflame title" style="max-width:100%;height:auto;">
+    <div id="navbar">
+        <a href="#" id="homeLink" onclick="loadContent('home')">
+            <img src="assets/blueflame.gif" alt="Home" id="homeImage">
+        </a>
+        <a href="#" class="nav-link" onclick="loadContent('bio')">Bio</a>
+        <a href="#" class="nav-link" onclick="loadContent('services')">Sold Accounts</a>
+        <a href="#" class="nav-link" onclick="loadContent('store')">Store</a>
+        <a href="#" class="nav-link" onclick="loadContent('rat')">Rat</a>
     </div>
-        <!-- <!<img src="Assets/LittleBlue.png" alt="Blueflame Character" style="max-width:10%;height:auto;"> -->
-    <h1>Finding how deep the rabbit hole really goes...</h1>
 
+
+
+    <div id="tint"></div>
+    <div id="fade-in-container">
+        <!--<img src="Assets/blueflame.gif" alt="blueflame title" style="max-width:100%;height:auto;">-->
+        <div id="topCenterContainer">
+            <img src="Assets/blueflame.gif" alt="blueflame title">
+            <h3>Finding how deep the rabbit hole really goes...</h3>
+        </div>
     <script type="text/javascript" src="JS/matrix.js"></script>
     <script type="text/javascript" src="JS/audio.js"></script>
-    <header>
-        <!-- Added for support without Javascript -->
-        <div>
-        </div>
+    <div id="content">
+        <!-- Initial home content will be loaded here -->
+    </div>
 
+    <button id="audioButton"></button>
+
+    <script>
+        var title = "Blue Flame"; // The title you want to animate
+        var counter = 0;
+
+        function animateTitle() {
+            if(counter != 0) {
+                document.title = title.substring(0, counter);
+            }
+
+            if (counter == title.length) {
+                counter = 0;
+                setTimeout(animateTitle, 1000);
+            } else {
+                counter++;
+                setTimeout(animateTitle, 300);
+            }
+        }
+
+        animateTitle(); // Start the animation
+
+
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            var video = document.getElementById('videoBG');
+            var button = document.getElementById('audioButton');
+            if (video.muted) {
+                button.style.backgroundImage = "url('assets/muted.png')";
+            } else {
+                button.style.backgroundImage = "url('assets/unmuted.png')";
+            }
+        });
+
+        document.getElementById('audioButton').addEventListener('click', function () {
+            var video = document.getElementById('videoBG');
+            var button = document.getElementById('audioButton');
+            video.muted = !video.muted;
+            if (video.muted) {
+                button.style.backgroundImage = "url('assets/muted.png')";
+            } else {
+                button.style.backgroundImage = "url('assets/unmuted.png')";
+            }
+        });
+
+        function loadContent(page) {
+            let contentHtml = '';
+
+            switch (page) {
+                case 'bio':
+                    contentHtml = `
+                        <h1 id="title">~Blue~</h1>
+                        <h2>About Me</h2>
+                        <p>My name is blue. Known coding languages: Python, Java, and HTML. 
+I specialize in making custom Discord bots and username snipers/turbos. I have contributed to 2 Minecraft username claimers, and designed an Instagram turbo.
+
+Currently I buy/sell/flip Minecraft and Discord usernames on OGUser.</p>
+                        <!-- Add more bio content here -->
+                    `;
+                    break;
+                    case 'services':
+    contentHtml = `
+        <h1 id="title">Sold Accounts</h1>
+       
+        <ul>
+            <li><a href="https://oguser.com/mcdj" target="_blank" style="color:#005dc2;">ER9<a/></li> 
+            <li>51y</li>
+            <li><a href="https://oguser.com/eassyyy" target="_blank" style="color:#005dc2;">Ciders</a></li>
+            <li><a href="https://oguser.com/attainxd" target="_blank" style="color:#005dc2;">RoIe</a></li>
+            <li><a href="https://oguser.com/Rokago" target="_blank" style="color:#005dc2;">vko</a></li>
+            <li><a href="https://oguser.com/iusegomme" target="_blank" style="color:#005dc2;">knp</a></li>
+            <li>3mn</li>
+            <li><a href="https://oguser.com/g8d" target="_blank" style="color:#005dc2;">G8D</a></li>
+            <li><a href="https://oguser.com/itzy" target="_blank" style="color:#005dc2;">_lc</a></li>
+            <li><a href="https://oguser.com/member.php?action=profile&uid=645051" target="_blank" style="color:#005dc2;">Kathrine</a></li>
+            <li>15B</li>
+            <li>WM8</li>
+            <li><a href="https://oguser.com/tievex" target="_blank" style="color:#005dc2;">Exiting</a></li>
+            <li><a href="https://oguser.com/Pana" target="_blank" style="color:#005dc2;">Pomegranate</a> 🔥</li>
+            <li><a href="https://oguser.com/ngs" target="_blank" style="color:#005dc2;">nzc</a></li>
+            <li><a href="https://oguser.com/psm" target="_blank" style="color:#005dc2;">cxx</a></li>
+            <li><a href="https://oguser.com/petergriffin" target="_blank" style="color:#005dc2;">efz</a></li>
+            <li>Kathrine (offsite)</li>
+            <li>dfl</li>
+            <li>RX1</li>
+            <li><a href="https://oguser.com/browse" target="_blank" style="color:#005dc2;">Gluten</a></li>
+            <li>Believing</li>
+            <li><a href="https://oguser.com/instancee" target="_blank" style="color:#0074d9;">Teaser</a> 🔥</li>
+            <li><a href="https://oguser.com/bitcoin" target="_blank" style="color:#0074d9;">2015 - Fr**dst*rz 🔥</a></li>
+            <li>Helena</li>
+            <li><a href="https://oguser.com/hahalolxd" target="_blank" style="color:#0074d9;">2015 - 35nc xD</a></li>
+            <li><a href="https://oguser.com/cheat" target="_blank" style="color:#0074d9;">kum</a> 👑</li>
+            <li><a href="https://oguser.com/vero" target="_blank" style="color:#0074d9;">2015 - 3nc</a></li>
+            <li><a href="https://oguser.com/member.php?action=profile&uid=549097" target="_blank" style="color:#0074d9;">Prename 2015</a></li>
+            <li><a href="https://oguser.com/thugtaken7" target="_blank" style="color:#0074d9;">Trench</a></li>
+            <li><a href="https://oguser.com/zx" target="_blank" style="color:#0074d9;">2016 - 6nc</a></li>
+            <li>2016 - 6nc (offsite)</li>
+            <li><a href="https://oguser.com/shuff" target="_blank" style="color:#0074d9;">2016 ogo</a></li>
+            <li><a href="https://oguser.com/janitor" target="_blank" style="color:#0074d9;">Bumble</a></li>
+            <li>Rubbery</li>
+            <li><a href="https://oguser.com/Shyheim1" target="_blank" style="color:#0074d9;">Mounted</a></li>
+            <li><a href="https://oguser.com/dominik" target="_blank" style="color:#0074d9;">2011 - 3nc</a></li>
+            <li><a href="https://oguser.com/pana" target="_blank" style="color:#0074d9;">2012 - 2nc 💙</a></li>
+            <li><a href="https://oguser.com/member.php?action=profile&uid=1014931" target="_blank" style="color:#0074d9;">Teaser</a></li>
+            <li><a href="https://oguser.com/doomi" target="_blank" style="color:#0074d9;">uui</a></li>
+        </ul>
+    `;
+    break;
+
+                case 'store':
+                    contentHtml = `
+                        <h1 id="title">~Blue~</h1>
+                        <h2>Store</h2>
+                        <p>Current Accounts for sale!</p>
+                    `;
+                    break;
+                case 'rat':
+                    contentHtml = `
+                        <h1 id="title">~Blue~</h1>
+                        <h2>Rat</h2>
+                        <p>This section is under construction. Stay tuned!</p>
+                    `;
+                    break;
+                default:
+                    contentHtml = `
+                        <h1 id="title">~Blue~</h1>
+                        <h2 style="margin-top: 15px;">Communications:</h2>
+                        <p><a href="https://oguser.com/blue" target="_blank" class="member-link" style="margin-top: 25px;">OGUser</a></p>
+                        <p><a href="https://discord.gg/snipes" target="_blank" class="member-link">Discord Server</a></p>
+                        <div style="margin-top: 50px;">
+                            <a href="https://t.me/blueflamelabs" target="_blank" class="social-icon">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                            <a href="https://discord.com/invite/DJvA9mSr" target="_blank" class="social-icon">
+                                <i class="fab fa-discord"></i>
+                            </a>
+                        </div>
+                    `;
+            }
+
+            document.getElementById('content').innerHTML = contentHtml;
+        }
+
+        // Load the original homepage content by default
+        loadContent('home');
+    </script>
 </body>
 
-<p>
 
-    
-    <a href="https://flipd.gg/blue" target="_blank">Selling accounts and services</a>
-    <a href="https://solo.to/blueflame" target="_blank">All Socials</a>
-</p>
 
 
 
